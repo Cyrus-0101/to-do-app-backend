@@ -8,6 +8,8 @@ router.route("/");
 
 router.get("/", taskControllers.getAllTasksCOntroller);
 
+router.get("/:id", taskControllers.getTaskByIDController);
+
 router.patch("/:id", taskControllers.patchUpdateTaskController);
 
 router.post("/", taskControllers.postCreateTaskController);

@@ -8,10 +8,9 @@ const taskSchema = new mongoose.Schema(
     message: {
       type: String,
     },
-    categoryName: {
-      type: String,
-      required: true,
-      enum: ["note", "todo", "plan"],
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
     },
   },
   { timestamps: true }

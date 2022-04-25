@@ -23,8 +23,20 @@ exports.patchUpdateTaskController = factory.updateOne(Task);
 exports.deleteTaskController = factory.deleteOne(Task);
 
 /**
- * Get All Tasks
+ * Get All Tasks, and their related models by ID.
  * @param {Task} req
  */
 
-exports.getAllTasksCOntroller = factory.getAll(Task);
+exports.getAllTasksCOntroller = factory.getAll(Task, {
+  path: "category",
+  select: "name",
+});
+
+/**
+ * Get Single Task.
+ * @param {Task} req
+ */
+exports.getTaskByIDController = factory.getOne(Task, {
+  path: "category",
+  select: "name",
+});
